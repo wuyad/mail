@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+  mail:
+    image: tvial/docker-mailserver:latest
+    hostname: mail
+    domainname: info.baiwangjinfu.com
+    container_name: mail
+    restart: always
+    external_links:
+      - ldap
+    ports:
+      - "25:25"
+      - "143:143"
+      - "587:587"
+      - "993:993"
+    volumes:
+      - ~/data/mail/maildata:/var/mail
+      - ~/data/mail/mailstate:/var/mail-state
+      - ~/data/mail/config/:/tmp/docker-mailserver/
+    environment:
+      - ONE_DIR=1
+      - ENABLE_LDAP=1
+      - LDAP_SERVER_HOST=ldap # your ldap container/IP/ServerName
+      - LDAP_SEARCH_BASE=ou=people,dc=xjbw,dc=com
+      - LDAP_BIND_DN=cn=admin,dc=xjbw,dc=com
+      - LDAP_BIND_PW=xjbwinfo
+      - LDAP_QUERY_FILTER_USER="(&(mail=%s)(mailEnabled=TRUE))"
+      - LDAP_QUERY_FILTER_GROUP="(&(mailGroupMember=%s)(mailEnabled=TRUE))"
+      - LDAP_QUERY_FILTER_ALIAS="(&(mailAlias=%s)(mailEnabled=TRUE))"
+      - DOVECOT_PASS_FILTER="(&(objectClass=PostfixBookMailAccount)(uniqueIdentifier=%n))"
+      - DOVECOT_USER_FILTER="(&(objectClass=PostfixBookMailAccount)(uniqueIdentifier=%n))"
+      - ENABLE_SASLAUTHD=1
+      - SASLAUTHD_MECHANISMS=ldap
+      - SASLAUTHD_LDAP_SERVER=ldap
+      - SASLAUTHD_LDAP_BIND_DN=cn=admin,dc=xjbw,dc=com
+      - SASLAUTHD_LDAP_PASSWORD=xjbwinfo
+      - SASLAUTHD_LDAP_SEARCH_BASE=ou=people,dc=xjbw,dc=com
