@@ -34,7 +34,7 @@ services:
       - DOVECOT_PASS_FILTER="(&(objectClass=inetOrgPerson)(mail=%n))"
       - DOVECOT_USER_FILTER="(&(objectClass=inetOrgPerson)(mail=%n))"
       # - DOVECOT_PASS_ATTRS="cn=user,userPassword=password"
-      - DOVECOT_USER_ATTRS="homeDirectory=home"
+      # - DOVECOT_USER_ATTRS="homeDirectory=home"
       - ENABLE_SASLAUTHD=1
       - SASLAUTHD_MECHANISMS=ldap
       - SASLAUTHD_LDAP_SERVER=ldap
