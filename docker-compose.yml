@@ -34,7 +34,7 @@ services:
       - DOVECOT_PASS_FILTER=(&(objectClass=inetOrgPerson)(cn=%n))
       - DOVECOT_USER_FILTER=(&(objectClass=inetOrgPerson)(cn=%n))
       - DOVECOT_PASS_ATTRS=cn=user,userPassword=password
-      - ENABLE_SASLAUTHD=1
+      - ENABLE_SASLAUTHD=0
       - SASLAUTHD_MECHANISMS=ldap
       - SASLAUTHD_LDAP_SERVER=ldap
       - SASLAUTHD_LDAP_BIND_DN=cn=admin,dc=xjbw,dc=com
