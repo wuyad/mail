@@ -21,11 +21,7 @@ services:
       - mailstate:/var/mail-state
       - ~/data/mail/config/:/tmp/docker-mailserver/
       - ~/data/nginx-proxy-https/certs/mail.info.baiwangjinfu.com:/etc/letsencrypt/live/mail.info.baiwangjinfu.com 
-  volumes:
-    maildata:
-      driver: local
-    mailstate:
-      driver: local
+
     environment:
       - ONE_DIR=1
       - ENABLE_LDAP=1
@@ -49,3 +45,8 @@ services:
       - SASLAUTHD_LDAP_BIND_DN=cn=admin,dc=xjbw,dc=com
       - SASLAUTHD_LDAP_PASSWORD=xjbwinfo
       - SASLAUTHD_LDAP_SEARCH_BASE=ou=people,dc=xjbw,dc=com
+volumes:
+  maildata:
+    driver: local
+  mailstate:
+    driver: local
