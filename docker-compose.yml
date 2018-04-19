@@ -18,7 +18,7 @@ services:
       # - ~/data/mail/maildata:/var/mail
       - ~/data/mail/mailstate:/var/mail-state
       - ~/data/mail/config/:/tmp/docker-mailserver/
-      - /data/nginx-proxy-https/certs/mail.info.baiwangjinfu.com mounted to /etc/letsencrypt/live/mail.info.baiwangjinfu.com 
+      - /data/nginx-proxy-https/certs/mail.info.baiwangjinfu.com:/etc/letsencrypt/live/mail.info.baiwangjinfu.com 
     environment:
       - ONE_DIR=1
       - ENABLE_LDAP=1
