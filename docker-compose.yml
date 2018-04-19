@@ -25,15 +25,15 @@ services:
       - ENABLE_LDAP=1
       - SSL_TYPE=letsencrypt
       - LDAP_SERVER_HOST=ldap # your ldap container/IP/ServerName
-      - LDAP_SEARCH_BASE="ou=people,dc=xjbw,dc=com"
-      - LDAP_BIND_DN="cn=admin,dc=xjbw,dc=com"
+      - LDAP_SEARCH_BASE=ou=people,dc=xjbw,dc=com
+      - LDAP_BIND_DN=cn=admin,dc=xjbw,dc=com
       - LDAP_BIND_PW=xjbwinfo
-      - LDAP_QUERY_FILTER_USER="(&(mail=%s)(mailEnabled=TRUE))"
-      - LDAP_QUERY_FILTER_GROUP="(&(mailGroupMember=%s)(mailEnabled=TRUE))"
-      - LDAP_QUERY_FILTER_ALIAS="(&(mailAlias=%s)(mailEnabled=TRUE))"
-      - DOVECOT_PASS_FILTER="(&(objectClass=inetOrgPerson)(cn=%n))"
-      - DOVECOT_USER_FILTER="(&(objectClass=inetOrgPerson)(cn=%n))"
-      - DOVECOT_PASS_ATTRS="cn=user,userPassword=password"
+      - LDAP_QUERY_FILTER_USER=(&(mail=%s)(mailEnabled=TRUE))
+      - LDAP_QUERY_FILTER_GROUP=(&(mailGroupMember=%s)(mailEnabled=TRUE))
+      - LDAP_QUERY_FILTER_ALIAS=(&(mailAlias=%s)(mailEnabled=TRUE))
+      - DOVECOT_PASS_FILTER=(&(objectClass=inetOrgPerson)(cn=%n))
+      - DOVECOT_USER_FILTER=(&(objectClass=inetOrgPerson)(cn=%n))
+      - DOVECOT_PASS_ATTRS=cn=user,userPassword=password
       - ENABLE_SASLAUTHD=1
       - SASLAUTHD_MECHANISMS=ldap
       - SASLAUTHD_LDAP_SERVER=ldap
