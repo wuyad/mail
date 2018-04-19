@@ -31,8 +31,8 @@ services:
       - LDAP_QUERY_FILTER_GROUP="(&(mailGroupMember=%s)(mailEnabled=TRUE))"
       - LDAP_QUERY_FILTER_ALIAS="(&(mailAlias=%s)(mailEnabled=TRUE))"
       - DOVECOT_PASS_FILTER="(&(objectClass=inetOrgPerson)(cn=%n))"
-      - DOVECOT_USER_FILTER="(&(objectClass=inetOrgPerson)(cn=%n))"
-      - DOVECOT_PASS_ATTRS="cn=user,userPassword=password"
+      # - DOVECOT_USER_FILTER="(&(objectClass=inetOrgPerson)(cn=%n))"
+      # - DOVECOT_PASS_ATTRS="cn=user,userPassword=password"
       - ENABLE_SASLAUTHD=1
       - SASLAUTHD_MECHANISMS=ldap
       - SASLAUTHD_LDAP_SERVER=ldap
