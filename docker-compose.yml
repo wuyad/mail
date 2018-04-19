@@ -40,5 +40,4 @@ services:
       - SASLAUTHD_LDAP_BIND_DN="cn=admin,dc=xjbw,dc=com"
       - SASLAUTHD_LDAP_PASSWORD=xjbwinfo
       - SASLAUTHD_LDAP_SEARCH_BASE="ou=people,dc=xjbw,dc=com"
-      - SASLAUTHD_LDAP_FILTER="(&(objectClass=inetOrgPerson)(cn=%U))""
-      - SASLAUTHD_LDAP_PASSWORD_ATTR="userPassword"
+      - SASLAUTHD_LDAP_FILTER="(&(objectClass=inetOrgPerson)(cn=%U))"
