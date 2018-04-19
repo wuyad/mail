@@ -35,8 +35,8 @@ services:
       - DOVECOT_USER_FILTER="(&(objectClass=inetOrgPerson)(cn=%n))"
       - DOVECOT_PASS_ATTRS="cn=user,userPassword=password"
       - DOVECOT_USER_ATTRS="homeDirectory=home"
-      - DOVECOT_MAIL_UID=docker
-      - DOVECOT_MAIL_GID=docker
+      - DOVECOT_MAIL_UID=5000
+      - DOVECOT_MAIL_GID=5000
       - ENABLE_SASLAUTHD=1
       - SASLAUTHD_MECHANISMS=ldap
       - SASLAUTHD_LDAP_SERVER=ldap
